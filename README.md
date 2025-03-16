@@ -1,89 +1,98 @@
-🚀 TalentScout - AI Hiring Assistant
-📌 Project Overview
-TalentScout is an AI-powered Hiring Assistant designed to automate and enhance the candidate screening process.
+TalentScout - AI Hiring Assistant
 
-🔹 Uses Google's Gemini AI (LLM) for dynamic question generation
-🔹 Generates role-specific technical questions based on experience & tech stack
-🔹 Fallback mechanism for predefined questions if AI fails
-🔹 Provides a smooth and interactive hiring experience via Gradio UI
+🚀 Project Overview
 
-⚙️ Installation Instructions
+TalentScout is an AI-powered Hiring Assistant designed to automate and enhance the candidate screening process. Using Google's Gemini AI (LLM), it dynamically generates technical interview questions based on the applicant’s role, experience level, and tech stack. The chatbot allows applicants to enter their details, generate AI-driven interview questions, submit responses, and experience an interactive hiring process via a Gradio UI.
+
+🛠 Installation Instructions
+
 1️⃣ Clone the Repository
-sh
-Copy
-Edit
-https://github.com/DivyaReddy9876/TalentScout
-cd TalentScout-AI-Hiring-Assistant  
+
+git clone https://github.com/DivyaReddy9876/TalentScout
+cd TalentScout-AI-Hiring-Assistant
+
 2️⃣ Create a Virtual Environment (Optional)
-sh
-Copy
-Edit
-python -m venv venv  
-source venv/bin/activate  # macOS/Linux  
-venv\Scripts\activate  # Windows  
+
+# macOS/Linux
+python -m venv venv
+source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
 3️⃣ Install Dependencies
-sh
-Copy
-Edit
-pip install -r requirements.txt  
-4️⃣ Set Up the Google Gemini API Key
-Replace "your_api_key" in app.py:
 
-python
-Copy
-Edit
-GENAI_API_KEY = "your_api_key"  # Replace with your actual Google Gemini API key  
-5️⃣ Run the Application
-sh
-Copy
-Edit
-python app.py  
-✅ This launches the Gradio UI, allowing users to interact with the chatbot.
+pip install -r requirements.txt
 
-🖥️ Usage Guide
-1️⃣ Start the Application by running app.py
-2️⃣ Enter Personal & Academic Details in the form
-3️⃣ Select Your Desired Job Role, including:
+🎯 Usage Guide
 
-AI/ML Intern
-SDE Intern / SDE Experienced
-QA Tester
-Full Stack Developer
-Project Manager
-Business Development Associate (BDA)
-4️⃣ Click “🔍 Generate Questions” – AI will generate role-specific interview questions
-5️⃣ Submit Your Answers & get a confirmation message
-🏗 Technical Details
-🔹 Tech Stack
-✔ Python 🐍 – Backend Processing
-✔ Gradio 🎨 – Interactive UI
-✔ Google Gemini AI 🤖 – AI-driven question generation
-✔ Predefined Question Database 📋 – Backup for AI failures
+Running the Application
 
-🔹 Core Functionalities
-🔹 User Input Handling – Collects candidate details
-🔹 AI Question Generation – Role & experience-based questions
-🔹 Fallback System – Predefined questions if AI fails
-🔹 Submission Process – Stores and processes candidate responses
+python app.py
 
-🎯 Prompt Design
-To generate high-quality, role-specific interview questions, we use this optimized prompt:
+This will start the chatbot interface in a web browser using Gradio.
 
-txt
-Copy
-Edit
-You are an interviewer preparing a technical interview for a {Fresher/Experienced} candidate applying for {Role}.  
-The candidate has the following tech skills: {Tech Stack}.  
-Generate 5 **technical** interview questions that are role-specific and relevant to their experience level.  
-Questions should be **clear, challenging, and related to real-world applications**.  
-✅ This ensures relevance, customization, and diverse question types.
+💡 Features
 
-⚠️ Challenges & Solutions
-Challenge	Solution
-AI Question Generation Fails Sometimes	Implemented a fallback mechanism using predefined questions
-Maintaining Context & Flow	Improved prompt engineering & set temperature=0.5
-Handling Disabled Fields in UI	Fixed Gradio UI issues to ensure all fields are editable
-🚀 Future Enhancements
-✅ Resume Parsing – Extract details from uploaded resumes
-✅ AI-Powered Answer Evaluation – Score candidate responses using NLP
-✅ Integration with ATS (Applicant Tracking System)
+🤖 AI-powered Chatbot for initial candidate screening
+
+📝 Dynamic Question Generation based on Tech Stack
+
+📄 Gradio UI for an interactive experience
+
+🔄 Context Handling for seamless conversations
+
+🚀 Easy Deployment on cloud platforms
+
+🏗 Architecture
+
+graph TD;
+  User-->GradioUI;
+  GradioUI-->Backend(Python);
+  Backend-->GeminiAI;
+  GeminiAI-->Response;
+  Response-->GradioUI;
+
+🧩 Code Snippets
+
+📌 Main App (app.py)
+
+import gradio as gr
+import google.generativeai as genai
+
+genai.configure(api_key="YOUR_GEMINI_API_KEY")
+
+def generate_questions(name, experience, position, tech_stack):
+    prompt = f"""Generate 3-5 technical questions for a candidate applying for {position} with {experience} years of experience in {tech_stack}."""
+    response = genai.generate_text(prompt)
+    return response['text']
+
+demo = gr.Interface(
+    fn=generate_questions,
+    inputs=["text", "text", "text", "text"],
+    outputs="text",
+    title="TalentScout AI - Hiring Assistant"
+)
+
+demo.launch()
+
+📌 Example Prompt Engineering
+
+prompt = f"""You are an AI Hiring Assistant. Based on the given tech stack, generate relevant technical interview questions.
+Tech Stack: Python, Django, PostgreSQL
+Experience: 3 years
+Position: Backend Developer
+"""
+
+🔧 Deployment
+
+Deploy on Hugging Face Spaces
+
+Create a new Space in Hugging Face
+
+Select Gradio as the interface
+
+Upload your files & add a requirements.txt
+
+Deploy and get a live demo link!
