@@ -12,7 +12,7 @@ TalentScout is an AI-powered Hiring Assistant designed to automate and enhance t
 sh
 Copy
 Edit
-git clone https://github.com/your-username/TalentScout-AI-Hiring-Assistant.git  
+https://github.com/DivyaReddy9876/TalentScout
 cd TalentScout-AI-Hiring-Assistant  
 2️⃣ Create a Virtual Environment (Optional)
 sh
