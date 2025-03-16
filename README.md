@@ -96,3 +96,13 @@ Select Gradio as the interface
 Upload your files & add a requirements.txt
 
 Deploy and get a live demo link!
+
+APPLICATION SAMPLE VIEW IN GRADIO :
+
+![image](https://github.com/user-attachments/assets/17ddaaab-2897-4241-9792-9e3c6077ea1d)
+![image](https://github.com/user-attachments/assets/10ab96ca-4d78-46a5-ba00-6a45e2a069ab)
+![image](https://github.com/user-attachments/assets/eb0822e1-e36b-450f-9742-a27e512f8151)
+![image](https://github.com/user-attachments/assets/e846dc74-9789-4538-a7f7-7a30c26828b3)
+
+
+
